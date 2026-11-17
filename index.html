@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saparata</title>
+<style>
+:root {
+--bg-gradient: linear-gradient(135deg, #f5d6ff 0%, #fae1fa 50%, #e6e6ff 100%);
+--text-main: #4a3b6b;
+--accent-blue: #9cd3ff;
+--accent-pink: #ffb3e6;
+--glass-bg: rgba(255, 255, 255, 0.4);
+--glass-border: rgba(255, 255, 255, 0.6);
+--glow: 0 0 15px rgba(200, 150, 255, 0.5);
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+background: var(--bg-gradient);
+background-size: 200% 200%;
+animation: gradientShift 10s ease infinite;
+color: var(--text-main);
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+overflow-x: hidden;
+}
+@keyframes gradientShift {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+.orb {
+position: absolute;
+border-radius: 50%;
+filter: blur(40px);
+z-index: -1;
+opacity: 0.6;
+}
+.orb-1 {
+width: 300px;
+height: 300px;
+background: var(--accent-pink);
+top: -50px;
+left: -50px;
+animation: float 6s ease-in-out infinite;
+}
+.orb-2 {
+width: 250px;
+height: 250px;
+background: var(--accent-blue);
+bottom: 10%;
+right: -50px;
+animation: float 8s ease-in-out infinite reverse;
+}
+@keyframes float {
+0% { transform: translateY(0) translateX(0); }
+50% { transform: translateY(-20px) translateX(20px); }
+100% { transform: translateY(0) translateX(0); }
+}
+nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px 50px;
+background: var(--glass-bg);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+border-bottom: 1px solid var(--glass-border);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo {
+font-size: 1.5rem;
+font-weight: 800;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(--text-main);
+text-shadow: var(--glow);
+}
+nav ul {
+list-style: none;
+display: flex;
+gap: 30px;
+}
+nav a {
+text-decoration: none;
+color: var(--text-main);
+font-weight: 600;
+transition: color 0.3s ease;
+position: relative;
+}
+nav a::after {
+content: '';
+position: absolute;
+width: 0%;
+height: 2px;
+bottom: -5px;
+left: 0;
+background: var(--accent-pink);
+transition: width 0.3s ease;
+box-shadow: var(--glow);
+}
+nav a:hover::after {
+width: 100%;
+}
+header {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+height: 80vh;
+padding: 0 20px;
+}
+.title-container {
+position: relative;
+display: inline-block;
+margin-bottom: 20px;
+animation: fadeUp 1s ease-out;
+}
+h1 {
+font-family: 'Brush Script MT', 'Segoe Script', 'Lucida Handwriting', cursive;
+font-size: 5.5rem;
+font-weight: normal;
+background: linear-gradient(to right, #ff0000, #ffffff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow: 0px 5px 15px rgba(200, 150, 255, 0.3);
+margin: 0;
+line-height: 1;
+}
+.crown {
+position: absolute;
+top: -30px;
+left: 50%;
+transform: translateX(-50%);
+font-size: 2.5rem;
+filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+p.subtitle {
+font-size: 1.2rem;
+max-width: 600px;
+line-height: 1.6;
+margin-bottom: 40px;
+animation: fadeUp 1.2s ease-out;
+}
+.btn {
+padding: 15px 40px;
+border: none;
+border-radius: 50px;
+background: rgba(255, 255, 255, 0.5);
+backdrop-filter: blur(5px);
+color: var(--text-main);
+font-size: 1rem;
+font-weight: 700;
+letter-spacing: 1px;
+cursor: pointer;
+box-shadow: 0 4px 15px rgba(0,0,0,0.05), inset 0 0 0 1px var(--glass-border);
+transition: all 0.3s ease;
+animation: fadeUp 1.4s ease-out;
+position: relative;
+overflow: hidden;
+}
+.btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 10px 25px rgba(156, 211, 255, 0.4), inset 0 0 0 1px var(--accent-blue);
+background: rgba(255, 255, 255, 0.8);
+}
+.btn::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+transition: left 0.5s ease;
+}
+.btn:hover::before {
+left: 100%;
+}
+@keyframes fadeUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+@media (max-width: 768px) {
+h1 { font-size: 3.5rem; }
+.crown { font-size: 1.8rem; top: -20px; }
+nav { padding: 15px 20px; }
+nav ul { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<nav>
+<div class="logo">Neo-Pastel</div>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Features</a></li>
+<li><a href="#">About</a></li>
+</ul>
+</nav>
+<header>
+<div class="title-container">
+<span class="crown">👑</span>
+<h1>Saparata</h1>
+</div>
+<p class="subtitle">A soft, glowing aesthetic merging the digital frontier with calming lavender and icy blue gradients.</p>
+<button class="btn">Initialize Experience</button>
+</header>
+</body>
+  </html>
