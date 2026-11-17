@@ -118,6 +118,7 @@ align-items: center;
 text-align: center;
 height: 80vh;
 padding: 0 20px;
+transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .title-container {
 position: relative;
@@ -187,20 +188,60 @@ transition: left 0.5s ease;
 left: 100%;
 }
 @keyframes fadeUp {
-from {
+from { opacity: 0; transform: translateY(30px); }
+to { opacity: 1; transform: translateY(0); }
+}
+#art-gallery {
+display: none;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+gap: 40px;
+padding: 40px 20px;
+min-height: 80vh;
 opacity: 0;
-transform: translateY(30px);
+transition: opacity 0.8s ease;
 }
-to {
-opacity: 1;
-transform: translateY(0);
+.art-card {
+background: rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+border: 1px solid var(--glass-border);
+border-radius: 20px;
+padding: 20px;
+box-shadow: 0 8px 32px 0 rgba(156, 211, 255, 0.2);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+max-width: 100%;
 }
+.art-card:hover {
+transform: translateY(-10px) scale(1.02);
+box-shadow: 0 15px 40px 0 rgba(200, 150, 255, 0.4);
+}
+.art-card img {
+display: block;
+max-width: 100%;
+height: auto;
+max-height: 65vh;
+border-radius: 10px;
+object-fit: contain;
+}
+.reveal {
+display: flex !important;
+opacity: 1 !important;
+}
+.hide-hero {
+opacity: 0;
+pointer-events: none;
+transform: scale(0.95);
 }
 @media (max-width: 768px) {
 h1 { font-size: 3.5rem; }
 .crown { font-size: 1.8rem; top: -20px; }
 nav { padding: 15px 20px; }
 nav ul { display: none; }
+#art-gallery { flex-direction: column; gap: 20px; padding: 20px; }
+.art-card img { max-height: 50vh; }
 }
 </style>
 </head>
@@ -208,20 +249,42 @@ nav ul { display: none; }
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 <nav>
-<div class="logo">Neo-Pastel</div>
+<div class="logo">Saparata</div>
 <ul>
 <li><a href="#">Home</a></li>
 <li><a href="#">Features</a></li>
 <li><a href="#">About</a></li>
 </ul>
 </nav>
-<header>
+
+<header id="hero-section">
 <div class="title-container">
 <span class="crown">👑</span>
 <h1>Saparata</h1>
 </div>
 <p class="subtitle">A soft, glowing aesthetic merging the digital frontier with calming lavender and icy blue gradients.</p>
-<button class="btn">Initialize Experience</button>
+<button class="btn" id="init-btn">Initialize Experience</button>
 </header>
+
+<div id="art-gallery">
+<div class="art-card">
+<img src="https://files.catbox.moe/placeholder1.png" alt="Purple Pastel Art">
+</div>
+<div class="art-card">
+<img src="https://files.catbox.moe/placeholder2.png" alt="Orange Checkered Art">
+</div>
+</div>
+
+<script>
+document.getElementById('init-btn').addEventListener('click', function() {
+const hero = document.getElementById('hero-section');
+const gallery = document.getElementById('art-gallery');
+hero.classList.add('hide-hero');
+setTimeout(() => {
+hero.style.display = 'none';
+gallery.classList.add('reveal');
+}, 500);
+});
+</script>
 </body>
-  </html>
+</html>
