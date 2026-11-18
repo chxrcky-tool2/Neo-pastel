@@ -198,7 +198,7 @@ justify-content: center;
 align-items: flex-start;
 flex-wrap: wrap;
 gap: 30px;
-padding: 40px 20px;
+padding: 40px 20px 110px;
 min-height: 80vh;
 opacity: 0;
 transition: opacity 0.8s ease;
@@ -236,6 +236,44 @@ max-height: 55vh;
 border-radius: 10px;
 object-fit: contain;
 }
+.caption {
+max-width: 320px;
+margin-top: 15px;
+font-size: 1rem;
+line-height: 1.5;
+text-align: center;
+color: var(--text-main);
+}
+.artist {
+position: fixed;
+left: 24px;
+bottom: 18px;
+z-index: 200;
+display: inline-block;
+font-family: 'Brush Script MT', 'Segoe Script', 'Lucida Handwriting', cursive;
+font-size: 2.4rem;
+line-height: 1.2;
+white-space: nowrap;
+pointer-events: none;
+}
+.artist::before {
+content: attr(data-text);
+position: absolute;
+left: 0;
+top: 0;
+color: #000000;
+-webkit-text-stroke: 7px #000000;
+z-index: 0;
+}
+.artist span {
+position: relative;
+z-index: 1;
+background: linear-gradient(90deg, #ffc2e8 0%, #e3c9ff 100%);
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+color: transparent;
+}
 .reveal {
 display: flex !important;
 opacity: 1 !important;
@@ -250,8 +288,9 @@ h1 { font-size: 3.5rem; }
 .crown { font-size: 1.8rem; top: -20px; }
 nav { padding: 15px 20px; }
 nav ul { display: none; }
-#art-gallery { flex-direction: column; gap: 20px; padding: 20px; }
+#art-gallery { flex-direction: column; align-items: center; gap: 20px; padding: 20px 20px 100px; }
 .art-card img { max-height: 50vh; }
+.artist { font-size: 1.9rem; left: 16px; bottom: 12px; }
 }
 </style>
 </head>
@@ -279,25 +318,32 @@ nav ul { display: none; }
 <div id="art-gallery">
 <div class="art-card">
 <div class="char-name">Azure</div>
-<img src="blue.jpeg" alt="Azure">
+<img src="blue.jpeg" alt="Azure, a character with blue hair covering one amber eye">
+<p class="caption">Her idea was for a TikTok account that I never made. Her hair is blue.</p>
 </div>
 <div class="art-card">
 <div class="char-name">Candy</div>
-<img src="candy.jpeg" alt="Candy">
+<img src="candy.jpeg" alt="Candy, a character with dark skin, one blue eye and one magenta eye, and pink and lavender pigtails">
+<p class="caption">A Gacha OC with dark skin, colorful eyes and colorful hair.</p>
 </div>
 <div class="art-card">
 <div class="char-name">Pastel</div>
-<img src="purple.jpeg" alt="Pastel">
+<img src="purple.jpeg" alt="Pastel, an alien-like character in soft purple and pink with a single large blue eye">
+<p class="caption">I wanted to play with color theory, but I don't really know it, so she turned out more alien than planned.</p>
 </div>
 <div class="art-card">
 <div class="char-name">Fiadh</div>
-<img src="orange.jpeg" alt="Fiadh">
+<img src="orange.jpeg" alt="Fiadh, a character with big orange hair, a blue bow and green eyes">
+<p class="caption">I made her. Big orange hair, a blue bow and a wooden bat.</p>
 </div>
 <div class="art-card">
 <div class="char-name">Fiadh-2</div>
-<img src="south_park.jpeg" alt="Fiadh-2">
+<img src="south_park.jpeg" alt="Fiadh-2, a South Park style character with orange hair, freckles and a baseball bat">
+<p class="caption">An OC made for South Park.</p>
 </div>
 </div>
+
+<div class="artist" data-text="Serayn Denille"><span>Serayn Denille</span></div>
 
 <script>
 document.getElementById('init-btn').addEventListener('click', function() {
@@ -311,4 +357,4 @@ gallery.classList.add('reveal');
 });
 </script>
 </body>
-  </html>
+</html>
