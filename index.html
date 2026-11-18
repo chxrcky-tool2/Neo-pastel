@@ -195,9 +195,9 @@ to { opacity: 1; transform: translateY(0); }
 display: none;
 flex-direction: row;
 justify-content: center;
-align-items: center;
+align-items: flex-start;
 flex-wrap: wrap;
-gap: 40px;
+gap: 30px;
 padding: 40px 20px;
 min-height: 80vh;
 opacity: 0;
@@ -213,16 +213,26 @@ padding: 20px;
 box-shadow: 0 8px 32px 0 rgba(156, 211, 255, 0.2);
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 max-width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 .art-card:hover {
 transform: translateY(-10px) scale(1.02);
 box-shadow: 0 15px 40px 0 rgba(200, 150, 255, 0.4);
 }
+.char-name {
+font-family: 'Brush Script MT', 'Segoe Script', 'Lucida Handwriting', cursive;
+font-size: 2.2rem;
+color: var(--text-main);
+margin-bottom: 15px;
+text-shadow: var(--glow);
+}
 .art-card img {
 display: block;
 max-width: 100%;
 height: auto;
-max-height: 65vh;
+max-height: 55vh;
 border-radius: 10px;
 object-fit: contain;
 }
@@ -268,10 +278,24 @@ nav ul { display: none; }
 
 <div id="art-gallery">
 <div class="art-card">
-<img src="purple.jpeg" alt="Purple Pastel Art">
+<div class="char-name">Azure</div>
+<img src="blue.jpeg" alt="Azure">
 </div>
 <div class="art-card">
-<img src="orange.jpeg" alt="Orange Checkered Art">
+<div class="char-name">Candy</div>
+<img src="candy.jpeg" alt="Candy">
+</div>
+<div class="art-card">
+<div class="char-name">Pastel</div>
+<img src="purple.jpeg" alt="Pastel">
+</div>
+<div class="art-card">
+<div class="char-name">Fiadh</div>
+<img src="orange.jpeg" alt="Fiadh">
+</div>
+<div class="art-card">
+<div class="char-name">Fiadh-2</div>
+<img src="south_park.jpeg" alt="Fiadh-2">
 </div>
 </div>
 
