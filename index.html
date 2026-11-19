@@ -198,7 +198,7 @@ justify-content: center;
 align-items: flex-start;
 flex-wrap: wrap;
 gap: 30px;
-padding: 40px 20px 110px;
+padding: 40px 20px;
 min-height: 80vh;
 opacity: 0;
 transition: opacity 0.8s ease;
@@ -237,7 +237,7 @@ border-radius: 10px;
 object-fit: contain;
 }
 .caption {
-max-width: 320px;
+max-width: 360px;
 margin-top: 15px;
 font-size: 1rem;
 line-height: 1.5;
@@ -245,16 +245,14 @@ text-align: center;
 color: var(--text-main);
 }
 .artist {
-position: fixed;
-left: 24px;
-bottom: 18px;
-z-index: 200;
+position: relative;
 display: inline-block;
+margin-bottom: 25px;
 font-family: 'Brush Script MT', 'Segoe Script', 'Lucida Handwriting', cursive;
 font-size: 2.4rem;
 line-height: 1.2;
 white-space: nowrap;
-pointer-events: none;
+animation: fadeUp 1.1s ease-out;
 }
 .artist::before {
 content: attr(data-text);
@@ -288,9 +286,9 @@ h1 { font-size: 3.5rem; }
 .crown { font-size: 1.8rem; top: -20px; }
 nav { padding: 15px 20px; }
 nav ul { display: none; }
-#art-gallery { flex-direction: column; align-items: center; gap: 20px; padding: 20px 20px 100px; }
+#art-gallery { flex-direction: column; align-items: center; gap: 20px; padding: 20px; }
 .art-card img { max-height: 50vh; }
-.artist { font-size: 1.9rem; left: 16px; bottom: 12px; }
+.artist { font-size: 1.9rem; }
 }
 </style>
 </head>
@@ -311,6 +309,7 @@ nav ul { display: none; }
 <span class="crown">👑</span>
 <h1>Saparata</h1>
 </div>
+<div class="artist" data-text="Serayn Denille"><span>Serayn Denille</span></div>
 <p class="subtitle">A soft, glowing aesthetic merging the digital frontier with calming lavender and icy blue gradients.</p>
 <button class="btn" id="init-btn">Initialize Experience</button>
 </header>
@@ -319,31 +318,29 @@ nav ul { display: none; }
 <div class="art-card">
 <div class="char-name">Azure</div>
 <img src="blue.jpeg" alt="Azure, a character with blue hair covering one amber eye">
-<p class="caption">Her idea was for a TikTok account that I never made. Her hair is blue.</p>
+<p class="caption">Azure was meant to be the face of a TikTok account that I never ended up making. Her blue hair falls over one side of her face, leaving a single amber eye looking out.</p>
 </div>
 <div class="art-card">
 <div class="char-name">Candy</div>
 <img src="candy.jpeg" alt="Candy, a character with dark skin, one blue eye and one magenta eye, and pink and lavender pigtails">
-<p class="caption">A Gacha OC with dark skin, colorful eyes and colorful hair.</p>
+<p class="caption">Candy is a Gacha OC. I gave her dark skin, one blue eye and one magenta eye, and pink and lavender pigtails that fade into icy blue.</p>
 </div>
 <div class="art-card">
 <div class="char-name">Pastel</div>
 <img src="purple.jpeg" alt="Pastel, an alien-like character in soft purple and pink with a single large blue eye">
-<p class="caption">I wanted to play with color theory, but I don't really know it, so she turned out more alien than planned.</p>
+<p class="caption">I wanted to try color theory, but I do not really know it yet, so Pastel turned out more alien than planned. She is all soft purples and pinks with one big blue eye.</p>
 </div>
 <div class="art-card">
 <div class="char-name">Fiadh</div>
 <img src="orange.jpeg" alt="Fiadh, a character with big orange hair, a blue bow and green eyes">
-<p class="caption">I made her. Big orange hair, a blue bow and a wooden bat.</p>
+<p class="caption">I made her. Fiadh is all about the big orange hair, tied up with a blue bow, plus green eyes, freckles, a blue scarf and a wooden bat.</p>
 </div>
 <div class="art-card">
 <div class="char-name">Fiadh-2</div>
 <img src="south_park.jpeg" alt="Fiadh-2, a South Park style character with orange hair, freckles and a baseball bat">
-<p class="caption">An OC made for South Park.</p>
+<p class="caption">Fiadh-2 is an OC in the South Park style, with big orange hair and a blue bow. She has freckles, a blue scarf, a baseball bat and a glove, and she is standing in a field of flowers.</p>
 </div>
 </div>
-
-<div class="artist" data-text="Serayn Denille"><span>Serayn Denille</span></div>
 
 <script>
 document.getElementById('init-btn').addEventListener('click', function() {
